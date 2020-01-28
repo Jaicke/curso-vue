@@ -1,0 +1,42 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+  #app{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .demo{
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+  }
+
+  .red{
+    background-color: red;
+  }
+
+  .blue{
+    background-color: blue;
+  }
+
+  .green{
+    background-color: green;
+  }
+</style>
+
+<div id="app">
+  <div class="demo" :class="{red: aplicarRed}" @click="aplicarRed = !aplicarRed"></div>
+  <div class="demo"></div>
+  <div class="demo"></div>
+</div>
+
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      aplicarRed: false
+    }
+  })
+</script>

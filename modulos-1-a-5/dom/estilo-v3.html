@@ -1,0 +1,58 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<style>
+  .caixas{
+    display: flex;
+    justify-content: space-around;
+  }
+  .demo{
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+  }
+
+  .red{
+    background-color: red;
+  }
+
+  .green{
+    background-color: green;
+  }
+
+  .blue{
+    background-color: blue;
+  }
+
+  .girar{
+    transform: rotate(45deg);
+  }
+</style>
+
+<div id="app">
+  <div class="caixas">
+    <div class="demo" :class="estilo" @click="aplicarRed = !aplicarRed"></div>
+    <div class="demo" :class="estilo"></div>
+    <div class="demo" :class="[classesCSS, { girar: aplicarGirar }]"></div>
+  </div>
+  <hr>
+  <input type="text" v-model="classesCSS">
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      aplicarRed: false,
+      classesCSS: 'red',
+      aplicarGirar: true
+    },
+    computed: {
+      estilo(){
+        return {
+          red: this.aplicarRed,
+          green: !this.aplicarRed
+        }
+      }
+    }
+  })
+</script>
